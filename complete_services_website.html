@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الأمن السيبراني والتقنية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            padding: 10px 15px;
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: #004494;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0056b3;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #0056b3;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        .results-info {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .service-category {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-detail {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-label {
+            font-weight: bold;
+            color: #495057;
+            min-width: 120px;
+            margin-left: 10px;
+        }
+
+        .service-value {
+            flex: 1;
+            color: #6c757d;
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .success-rate {
+            background: linear-gradient(45deg, #17a2b8, #6f42c1);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #0056b3;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #004494;
+            transform: scale(1.1);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .results-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">🔐 خدمات الأمن السيبراني</div>
+            <nav class="nav-menu">
+                <a href="#services" class="nav-item">الخدمات</a>
+                <a href="#contact" class="nav-item">اتصل بنا</a>
+                <a href="#about" class="nav-item">من نحن</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>خدمات الأمن السيبراني والتقنية</h1>
+        <p>نقدم مجموعة شاملة من الخدمات التقنية والأمنية لحماية بياناتك وأنظمتك الرقمية</p>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalServices">500+</span>
+                <span class="stat-label">خدمة متاحة</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">معدل النجاح</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">دعم فني</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن خدمة معينة...">
+        </div>
+
+        <div class="filters">
+            <div class="filter-section">
+                <div class="filter-title">الفئات الرئيسية</div>
+                <div class="filter-buttons" id="categoryButtons">
+                    <button class="filter-btn active" data-category="all">جميع الخدمات</button>
+                </div>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title">الفئات الفرعية</div>
+                <div class="filter-buttons" id="subcategoryButtons">
+                    <button class="filter-btn active" data-subcategory="all">جميع الفئات الفرعية</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-info">
+            <span id="resultsCount">جاري التحميل...</span>
+            <span id="sortOptions">
+                <select id="sortSelect">
+                    <option value="name">ترتيب حسب الاسم</option>
+                    <option value="price">ترتيب حسب السعر</option>
+                    <option value="duration">ترتيب حسب المدة</option>
+                    <option value="successRate">ترتيب حسب نسبة النجاح</option>
+                </select>
+            </span>
+        </div>
+
+        <div class="loading" id="loading">جاري تحميل الخدمات...</div>
+        <div class="services-grid" id="servicesGrid" style="display: none;">
+            <!-- Services will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 جميع الحقوق محفوظة. خدمات الأمن السيبراني والتقنية.</p>
+        <p>للاستفسارات والحجز، يرجى التواصل معنا</p>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script src="services_data.js"></script>
+    <script>
+        let filteredServices = [];
+        let currentCategory = 'all';
+        let currentSubcategory = 'all';
+        let currentSort = 'name';
+
+        // Initialize the page
+        function init() {
+            if (typeof services === 'undefined') {
+                document.getElementById('loading').textContent = 'خطأ في تحميل البيانات';
+                return;
+            }
+            
+            filteredServices = [...services];
+            renderCategoryButtons();
+            renderSubcategoryButtons();
+            renderServices();
+            setupEventListeners();
+            updateResultsCount();
+            
+            // Hide loading and show content
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('servicesGrid').style.display = 'grid';
+        }
+
+        function renderCategoryButtons() {
+            const container = document.getElementById('categoryButtons');
+            const categories = [...new Set(services.map(s => s.category))];
+            
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'filter-btn';
+                button.setAttribute('data-category', category);
+                button.textContent = category;
+                container.appendChild(button);
+            });
+        }
+
+        function renderSubcategoryButtons() {
+            const container = document.getElementById('subcategoryButtons');
+            const subcategories = [...new Set(services.map(s => s.subcategory))];
+            
+            subcategories.forEach(subcategory => {
+                const button = document.createElement('button');
+                button.className = 'filter-btn';
+                button.setAttribute('data-subcategory', subcategory);
+                button.textContent = subcategory;
+                container.appendChild(button);
+            });
+        }
+
+        function sortServices(services, sortBy) {
+            return services.sort((a, b) => {
+                switch(sortBy) {
+                    case 'name':
+                        return a.name.localeCompare(b.name, 'ar');
+                    case 'price':
+                        const priceA = parseInt(a.price.replace(/[^\d]/g, '')) || 0;
+                        const priceB = parseInt(b.price.replace(/[^\d]/g, '')) || 0;
+                        return priceA - priceB;
+                    case 'duration':
+                        return a.duration.localeCompare(b.duration, 'ar');
+                    case 'successRate':
+                        const rateA = parseInt(a.successRate.replace(/[^\d]/g, '')) || 0;
+                        const rateB = parseInt(b.successRate.replace(/[^\d]/g, '')) || 0;
+                        return rateB - rateA;
+                    default:
+                        return 0;
+                }
+            });
+        }
+
+        function renderServices() {
+            const container = document.getElementById('servicesGrid');
+            container.innerHTML = '';
+
+            const sortedServices = sortServices([...filteredServices], currentSort);
+
+            sortedServices.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                serviceCard.innerHTML = `
+                    <div class="service-category">${service.category} - ${service.subcategory}</div>
+                    <div class="service-title">${service.name}</div>
+                    <div class="service-detail">
+                        <span class="service-label">الوصف:</span>
+                        <span class="service-value">${service.description}</span>
+                    </div>
+                    <div class="service-detail">
+                        <span class="service-label">الخطوات:</span>
+                        <span class="service-value">${service.steps}</span>
+                    </div>
+                    <div class="service-detail">
+                        <span class="service-label">المتطلبات:</span>
+                        <span class="service-value">${service.requirements}</span>
+                    </div>
+                    <div class="service-detail">
+                        <span class="service-label">المدة:</span>
+                        <span class="service-value">${service.duration}</span>
+                    </div>
+                    <div class="service-detail">
+                        <span class="service-label">السعر:</span>
+                        <span class="service-value"><span class="price-tag">${service.price}</span></span>
+                    </div>
+                    <div class="service-detail">
+                        <span class="service-label">نسبة النجاح:</span>
+                        <span class="service-value"><span class="success-rate">${service.successRate}</span></span>
+                    </div>
+                `;
+                container.appendChild(serviceCard);
+            });
+        }
+
+        function filterServices() {
+            filteredServices = services.filter(service => {
+                const matchesCategory = currentCategory === 'all' || service.category === currentCategory;
+                const matchesSubcategory = currentSubcategory === 'all' || service.subcategory === currentSubcategory;
+                
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const matchesSearch = searchTerm === '' || 
+                    service.name.toLowerCase().includes(searchTerm) ||
+                    service.description.toLowerCase().includes(searchTerm) ||
+                    service.category.toLowerCase().includes(searchTerm) ||
+                    service.subcategory.toLowerCase().includes(searchTerm);
+                
+                return matchesCategory && matchesSubcategory && matchesSearch;
+            });
+            
+            renderServices();
+            updateResultsCount();
+        }
+
+        function updateResultsCount() {
+            document.getElementById('resultsCount').textContent = 
+                `عرض ${filteredServices.length} من أصل ${services.length} خدمة`;
+        }
+
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', filterServices);
+
+            // Category filtering
+            document.getElementById('categoryButtons').addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('#categoryButtons .filter-btn').forEach(btn => 
+                        btn.classList.remove('active')
+                    );
+                    e.target.classList.add('active');
+                    currentCategory = e.target.getAttribute('data-category');
+                    filterServices();
+                }
+            });
+
+            // Subcategory filtering
+            document.getElementById('subcategoryButtons').addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('#subcategoryButtons .filter-btn').forEach(btn => 
+                        btn.classList.remove('active')
+                    );
+                    e.target.classList.add('active');
+                    currentSubcategory = e.target.getAttribute('data-subcategory');
+                    filterServices();
+                }
+            });
+
+            // Sorting
+            document.getElementById('sortSelect').addEventListener('change', function(e) {
+                currentSort = e.target.value;
+                renderServices();
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+
